@@ -1,40 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark light">
-  <title>FreeVPN Lab — GitHub Only</title>
-  <style>
-    :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#e8edf7;background:#0b1020}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#18264a 0,transparent 55%),#0b1020}.wrap{max-width:900px;margin:auto;padding:48px 20px 64px}.eyebrow{color:#9fb7ff;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}.panel{background:#111a2e;border:1px solid #293858;border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 14px 40px #0002}h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.05;margin:.5rem 0 1rem}h2{font-size:1.25rem;margin-top:0}.muted{color:#b7c3d9;line-height:1.7}.warning{border-color:#8b6734;background:#211b14}.tag{display:inline-block;border:1px solid #43577e;border-radius:999px;padding:5px 10px;color:#c6d5ff;font-size:.85rem}a{color:#a9c4ff}li{margin:.6rem 0;line-height:1.55}.status{font-weight:700;color:#ffd28a}@media(max-width:520px){.wrap{padding:28px 14px}.panel{padding:18px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>FreeVPN Lab — Client Config Panel</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#e9efff;background:#080d18;--muted:#a6b3cc;--line:#283550;--panel:#111a2b;--accent:#8db4ff;--ok:#83e1b0;--warn:#ffd48a}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 0,#1a2c50 0,transparent 48%),#080d18}.wrap{max-width:980px;margin:auto;padding:36px 18px 64px}.eyebrow{color:var(--accent);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}h1{font-size:clamp(2rem,7vw,3.5rem);margin:.45rem 0}p{line-height:1.65}.muted{color:var(--muted)}.tag{display:inline-flex;border:1px solid #40577c;border-radius:99px;padding:5px 10px;font-size:.82rem;margin:3px 4px 3px 0}.panel{background:linear-gradient(145deg,#131e31,#0d1524);border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 16px 44px #0002}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px}label{font-weight:650;font-size:.92rem}input,select,textarea{width:100%;border:1px solid #34445f;background:#091222;color:#eef3ff;border-radius:10px;padding:12px;font:inherit}textarea{min-height:115px;resize:vertical}button{border:1px solid #587bb6;background:#1d3761;color:white;border-radius:10px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer}button.secondary{background:#111b2c;border-color:#34445f}button:disabled{opacity:.5;cursor:wait}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.status{padding:12px 14px;border-radius:10px;background:#0b1424;border:1px solid var(--line);margin-top:12px;white-space:pre-wrap;overflow-wrap:anywhere}.status.ok{border-color:#327859;color:var(--ok)}.status.warn{border-color:#78613a;color:var(--warn)}.small{font-size:.88rem}.hidden{display:none}code{overflow-wrap:anywhere;color:#c5d7ff}a{color:#a9c6ff}@media(max-width:650px){.grid{grid-template-columns:1fr}.wrap{padding:24px 13px 40px}.panel{padding:17px}}
+</style>
 </head>
-<body>
-  <main class="wrap">
-    <div class="eyebrow">Open-source learning project</div>
-    <h1>FreeVPN Lab</h1>
-    <p class="muted">Exploring VPN tooling with GitHub — honestly, safely, and without pretending CI runners are permanent servers.</p>
-    <span class="tag">GitHub only · No Cloudflare</span>
-    <section class="panel warning">
-      <h2><span class="status">Important limitation</span></h2>
-      <p class="muted">This page is <strong>not a VPN</strong>. GitHub Pages serves static websites, while GitHub Actions runs temporary automation jobs. Neither provides a persistent VPN endpoint or routes your device's internet traffic.</p>
-    </section>
-    <section class="panel">
-      <h2>What we can build here</h2>
-      <ul class="muted">
-        <li>A public project website and step-by-step documentation.</li>
-        <li>Automated checks and builds with GitHub Actions.</li>
-        <li>Later, a local configuration guide or client-side validator that never uploads private keys.</li>
-      </ul>
-    </section>
-    <section class="panel">
-      <h2>What a real VPN needs</h2>
-      <p class="muted">A real VPN needs a device or hosting service that accepts a tunnel and forwards traffic. If you have no VPS or other always-on host, GitHub alone cannot provide that endpoint. We will not use temporary Actions runners as a persistent tunnel or proxy.</p>
-    </section>
-    <section class="panel">
-      <h2>Next step</h2>
-      <p class="muted">Read the <a href="https://github.com/pctaha501-create/FreeVPN-Lab-GitHubOnly/blob/main/README.md">project README</a> for the exact GitHub Pages publishing steps.</p>
-    </section>
-  </main>
-</body>
-</html>
+<body><main class="wrap">
+<div class="eyebrow">Open-source networking lab</div>
+<h1>FreeVPN Lab</h1>
+<p class="muted">BPB-inspired setup panel for a Cloudflare Workers prototype. The panel can generate a VLESS/WebSocket profile; it cannot promise that every destination or network will work.</p>
+<div><span class="tag">V2RayNG</span><span class="tag">v2rayN</span><span class="tag">Hiddify</span><span class="tag">FlClash</span></div>
+<section class="panel">
+<h2>1. Worker settings</h2>
+<p class="muted small">Enter the deployed Worker hostname and the UUID you configured as the Worker secret. Do not publish your UUID in the repository or send it to anyone you do not trust.</p>
+<div class="grid">
+<div class="field"><label for="host">Worker hostname</label><input id="host" placeholder="freevpn-lab-githubonly.your-subdomain.workers.dev" autocomplete="url"></div>
+<div class="field"><label for="uuid">VLESS UUID</label><input id="uuid" placeholder="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx" autocomplete="off" spellcheck="false"></div>
+</div>
+<div class="actions"><button id="health">Check Worker status</button><button class="secondary" id="make">Generate client profiles</button></div>
+<div id="healthResult" class="status muted" role="status">Worker status has not been checked.</div>
+</section>
+<section class="panel">
+<h2>2. Client profiles</h2>
+<p class="muted small">The profile generator creates a VLESS-over-WebSocket URI and a basic Clash-compatible YAML profile. Test the generated profile on a device before sharing it.</p>
+<div class="field"><label for="uri">VLESS URI</label><textarea id="uri" readonly placeholder="Generated profile appears here"></textarea></div>
+<div class="actions"><button class="secondary" data-copy="uri">Copy VLESS URI</button><button class="secondary" id="downloadYaml">Download Clash YAML</button><button class="secondary" id="downloadSub">Download subscription text</button></div>
+<div class="field" style="margin-top:14px"><label for="yaml">Clash-compatible YAML</label><textarea id="yaml" readonly placeholder="Generated YAML appears here"></textarea></div>
+<div id="profileResult" class="status muted" role="status">No profile generated yet.</div>
+</section>
+<section class="panel">
+<h2>3. Check your current public IP</h2>
+<p class="muted small">This checks the public IP visible to this browser only. It does not rate an IP as “clean” and does not test a VPN connection. To test the tunnel, connect a client and check the IP again from that client/device.</p>
+<div class="actions"><button id="checkIp">Check browser public IP</button></div>
+<div id="ipResult" class="status muted" role="status">No IP check run.</div>
+</section>
+<section class="panel">
+<h2>Deployment checklist</h2>
+<ul class="muted">
+<li>Deploy the Worker from GitHub Actions after adding the repository secret <code>CLOUDFLARE_API_TOKEN</code> and repository variable <code>CLOUDFLARE_ACCOUNT_ID</code>.</li>
+<li>Set the Worker secret named <code>UUID</code> to the same UUID entered above. Use a strong random UUID and keep it private.</li>
+<li>Test <code>/health</code> before importing profiles.</li>
+<li>Workers have quotas and outbound socket restrictions. This is a prototype, not an unlimited VPN service.</li>
+</ul>
+</section>
+<p class="muted small">Project: <a href="https://github.com/pctaha501-create/FreeVPN-Lab-GitHubOnly">GitHub repository</a> · Never commit secrets or real user subscription links.</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const setStatus=(id,text,kind="")=>{const el=$(id);el.textContent=text;el.className="status "+kind;};
+function normalizeHost(){return $("host").value.trim().replace(/^https?:\/\//i,"").replace(/\/$/,"");}
+function validUuid(v){return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(v);}
+function getSettings(){const host=normalizeHost(),uuid=$("uuid").value.trim();if(!host||host.includes("/")||host.includes(" ")||!host.includes("."))throw new Error("Enter a valid Worker hostname, without https:// or a path.");if(!validUuid(uuid))throw new Error("Enter a valid UUID that matches the Worker UUID secret.");return{host,uuid};}
+$("health").addEventListener("click",async()=>{const host=normalizeHost();if(!host||host.includes("/")||host.includes(" "))return setStatus("healthResult","Enter a valid Worker hostname first.","warn");const b=$("health");b.disabled=true;setStatus("healthResult","Checking Worker…");try{const r=await fetch("https://"+host+"/health",{cache:"no-store"});const d=await r.json();setStatus("healthResult","HTTP "+r.status+"\n"+JSON.stringify(d,null,2),r.ok&&d.status==="configured"?"ok":"warn");}catch(e){setStatus("healthResult","Could not reach /health. Check the hostname, deployment, and browser network.\n"+e.message,"warn");}finally{b.disabled=false;}});
+$("make").addEventListener("click",()=>{try{const{host,uuid}=getSettings();const name="FreeVPN-Lab";const uri="vless://"+uuid+"@"+host+":443?encryption=none&security=tls&sni="+encodeURIComponent(host)+"&type=ws&host="+encodeURIComponent(host)+"&path=%2Fws#"+encodeURIComponent(name);const yaml=["mixed-port: 7890","allow-lan: false","mode: rule","log-level: info","proxies:","  - name: "+name,"    type: vless","    server: "+host,"    port: 443","    uuid: "+uuid,"    tls: true","    servername: "+host,"    network: ws","    ws-opts:","      path: /ws","      headers:","        Host: "+host,"proxy-groups:","  - name: PROXY","    type: select","    proxies:","      - "+name,"rules:","  - MATCH,PROXY",""].join("\n");$("uri").value=uri;$("yaml").value=yaml;setStatus("profileResult","Profiles generated locally. They are not proof of a successful tunnel; test with the client and check destination reachability.","ok");}catch(e){setStatus("profileResult",e.message,"warn");}});
+document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",async()=>{const v=$(b.dataset.copy).value;if(!v)return setStatus("profileResult","Generate a profile first.","warn");try{await navigator.clipboard.writeText(v);setStatus("profileResult","Copied to clipboard.","ok");}catch{setStatus("profileResult","Clipboard access failed; select and copy the text manually.","warn");}}));
+function download(name,content,type){const blob=new Blob([content],{type});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href);}
+$("downloadYaml").addEventListener("click",()=>{if(!$("yaml").value)return setStatus("profileResult","Generate a profile first.","warn");download("freevpn-clash.yaml",$("yaml").value,"text/yaml;charset=utf-8");});
+$("downloadSub").addEventListener("click",()=>{if(!$("uri").value)return setStatus("profileResult","Generate a profile first.","warn");download("freevpn-subscription.txt",$("uri").value+"\n","text/plain;charset=utf-8");});
+$("checkIp").addEventListener("click",async()=>{const b=$("checkIp");b.disabled=true;setStatus("ipResult","Checking public IP…");try{let ip="";for(const url of ["https://api.ipify.org?format=json","https://ipinfo.io/json"]){try{const r=await fetch(url,{cache:"no-store"});if(!r.ok)continue;const d=await r.json();ip=d.ip||"";if(ip)break;}catch{}}if(!ip)throw new Error("IP lookup providers were unavailable.");setStatus("ipResult","Browser-visible public IP: "+ip+"\nThis is not a clean-IP or VPN-quality verdict.","ok");}catch(e){setStatus("ipResult",e.message,"warn");}finally{b.disabled=false;}});
+</script></body></html>

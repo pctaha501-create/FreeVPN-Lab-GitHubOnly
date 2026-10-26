@@ -1,0 +1,12 @@
+{
+  "name": "freevpn-lab-githubonly",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Authenticated VLESS-over-WebSocket Worker prototype and client config panel",
+  "scripts": {
+    "check": "node --check worker/src/index.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

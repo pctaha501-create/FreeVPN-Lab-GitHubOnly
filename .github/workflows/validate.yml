@@ -14,7 +14,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Checkout
         uses: actions/checkout@v4
       - name: Validate required files
         shell: bash
@@ -22,6 +22,9 @@ jobs:
           set -euo pipefail
           test -s README.md
           test -s index.html
-          grep -q '<!doctype html>' index.html
-          grep -q 'not a VPN' index.html
-          echo 'Static project checks passed.'
+          test -s worker/src/index.js
+          test -s wrangler.jsonc
+          node --check worker/src/index.js
+          grep -q 'name: Deploy Cloudflare Worker' .github/workflows/deploy-worker.yml
+          grep -q 'VLESS over WebSocket' worker/src/index.js
+          echo 'Project validation passed.'
